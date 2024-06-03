@@ -1,7 +1,7 @@
 const app = require('./app')
 const cloudinary = require("cloudinary")
 const connectDatabase = require("./config/database")
-
+const cors = require('cors')
 
 //handilg uncaught exception
 process.on("uncaughtException", err => {
@@ -10,7 +10,7 @@ process.on("uncaughtException", err => {
   process.exit(1);
 })
 
-if(process.env.NODE_ENV!=="PRODUCTION"){
+if (process.env.NODE_ENV !== "PRODUCTION") {
   require('dotenv').config({ path: './config/config.env' })
 }
 
@@ -35,6 +35,6 @@ process.on("unhandledRejection", err => {
   console.log(`Error: ${err.message}`);
   console.log(`Shitting down server due to some internal problem`);
   server.close(() => {
-     process.exit(1);
+    process.exit(1);
   })
 })
