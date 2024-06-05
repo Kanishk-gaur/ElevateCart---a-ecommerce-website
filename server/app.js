@@ -63,7 +63,9 @@ app.get("/api/v1/stripeapikey", isAuthenticateUser, catchAsyncErrors(async (req,
 //   res.sendFile(path.resolve(__dirname, "/build"));
 // });
 
+// const path = require("path");
 
+app.use(express.static(path.join(__dirname, "build"))); // put this line of code in app.js
 
 
 //middleeware for error
