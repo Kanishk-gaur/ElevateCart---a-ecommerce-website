@@ -38,3 +38,4 @@ process.on("unhandledRejection", err => {
     process.exit(1);
   })
 })
+// DB_URI=mongodb+srv://kanishk:7017327309@cluster0.nrmcanf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0

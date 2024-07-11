@@ -8,6 +8,7 @@ const dotenv = require("dotenv")
 const router = express.Router();
 const Stripe = require('stripe');
 const stripe = Stripe('sk_test_51O2zCCSIPg36jqFm8CWJ8QGuAsnSUEz7BXQ1PnaDY78jaKoAOIjdPPOZt2E7pRE8KgB18LVzk8JJwjS8zZzkzzR800uHxOBzV3');
+const cors=require('cors');
 
 
 const errorMiddleware = require("./middleware/error");
@@ -18,6 +19,7 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "./config/config.env" })
 }
 
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
