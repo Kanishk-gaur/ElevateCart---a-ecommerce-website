@@ -4,6 +4,7 @@ const connectDatabase = require("./config/database")
 const cors = require('cors')
 
 //handilg uncaught exception
+app.use(cors());
 process.on("uncaughtException", err => {
   console.log(`Error:${err.message}`);
   console.log(`Shitting down server due to some uncaught error`);
@@ -26,7 +27,7 @@ cloudinary.config({
 
 
 
-const server = app.listen(process.env.PORT, () => {
+const server = app.listen(5000, () => {
   console.log(`Server is working on http://localhost:${process.env.PORT}`)
 })
 

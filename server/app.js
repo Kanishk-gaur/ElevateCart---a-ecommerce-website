@@ -19,8 +19,9 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "./config/config.env" })
 }
 
-app.use(cors());
 app.use(express.json());
+
+app.use(cors()); 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
