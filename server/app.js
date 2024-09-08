@@ -8,7 +8,7 @@ const dotenv = require("dotenv")
 const router = express.Router();
 const Stripe = require('stripe');
 const stripe = Stripe('sk_test_51O2zCCSIPg36jqFm8CWJ8QGuAsnSUEz7BXQ1PnaDY78jaKoAOIjdPPOZt2E7pRE8KgB18LVzk8JJwjS8zZzkzzR800uHxOBzV3');
-const cors=require('cors');
+const cors = require('cors');
 
 
 const errorMiddleware = require("./middleware/error");
@@ -21,20 +21,20 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
 
 app.use(express.json());
 
-app.use(cors()); 
+app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
 
- // Route Imports
+// Route Imports
 const product = require("./routes/productRoute");
 const user = require("./routes/userRoute");
 const order = require("./routes/orderRoute");
 const { isAuthenticateUser } = require("./middleware/auth");
 const catchAsyncErrors = require("./middleware/catchAsyncErrors");
- //const payment = require("./routes/paymentRoute");
+//const payment = require("./routes/paymentRoute");
 
- app.use("/api/v1", product);
+app.use("/api/v1", product);
 app.use("/api/v1", user);
 app.use("/api/v1", order);
 // //app.use("/api/v1", payment);
@@ -68,7 +68,7 @@ app.get("/api/v1/stripeapikey", isAuthenticateUser, catchAsyncErrors(async (req,
 
 // const path = require("path");
 
-app.use(express.static(path.join(__dirname, "build"))); // put this line of code in app.js
+// app.use(express.static(path.join(__dirname, "build"))); // put this line of code in app.js
 
 
 //middleeware for error
